@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Avalonia Attached Property</Title>
+			<Shortcut>avaap</Shortcut>
+			<Description>Code snippet for creating a new Avalonia Attached Property</Description>
+			<Author>timunie</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>propertyName</ID>
+					<ToolTip>The name of the attached property</ToolTip>
+					<Default>AttachedProperty</Default>
+				</Literal>
+				<Literal>
+					<ID>propertyType</ID>
+					<ToolTip>The type of the property</ToolTip>
+					<Default>object</Default>
+				</Literal>
+				<Literal>
+					<ID>ownerType</ID>
+					<ToolTip>The type of the owner</ToolTip>
+					<Default>AvaloniaObject</Default>
+				</Literal>
+				<Literal>
+					<ID>default</ID>
+					<ToolTip>The default value</ToolTip>
+					<Default>null</Default>
+				</Literal>
+				<Literal>
+					<ID>comment</ID>
+					<ToolTip>A comment which discipes the property</ToolTip>
+					<Default>Comment</Default>
+				</Literal>
+			</Declarations>
+			<Imports>
+				<Import>
+				  <Namespace>Avalonia</Namespace>
+				  <Namespace>Avalonia.Interactivity</Namespace>
+				</Import>
+			</Imports>
+			<Code Language="csharp"><![CDATA[
+		/// <summary>
+        /// $comment$
+        /// </summary>
+		public static readonly AttachedProperty<$propertyType$> $propertyName$Property = AvaloniaProperty.RegisterAttached<$ownerType$, Interactive, $propertyType$>(
+			"$propertyName$", $default$);
+			
+			
+		/// <summary>
+		/// Accessor for Attached property <see cref="$propertyName$Property"/>.
+		/// </summary>
+		public static void Set$propertyName$(AvaloniaObject element, $propertyType$ value)
+		{
+			element.SetValue($propertyName$Property, value);
+		}
+
+		/// <summary>
+		/// Accessor for Attached property <see cref="$propertyName$Property"/>.
+		/// </summary>
+		public static $propertyType$ Get$propertyName$(AvaloniaObject element)
+		{
+			return element.GetValue($propertyName$Property);
+		}
+		]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
