@@ -25,7 +25,12 @@
 				<Literal>
 					<ID>ownerType</ID>
 					<ToolTip>The type of the owner</ToolTip>
-					<Default>AvaloniaObject</Default>
+					<Default>IAvaloniaObject</Default>
+				</Literal>
+				<Literal>
+					<ID>hostType</ID>
+					<ToolTip>The type of the host</ToolTip>
+					<Default>IAvaloniaObject</Default>
 				</Literal>
 				<Literal>
 					<ID>default</ID>
@@ -41,14 +46,13 @@
 			<Imports>
 				<Import>
 				  <Namespace>Avalonia</Namespace>
-				  <Namespace>Avalonia.Interactivity</Namespace>
 				</Import>
 			</Imports>
 			<Code Language="csharp"><![CDATA[
 		/// <summary>
         /// $comment$
         /// </summary>
-		public static readonly AttachedProperty<$propertyType$> $propertyName$Property = AvaloniaProperty.RegisterAttached<$ownerType$, Interactive, $propertyType$>(
+		public static readonly AttachedProperty<$propertyType$> $propertyName$Property = AvaloniaProperty.RegisterAttached<$ownerType$, $hostType$, $propertyType$>(
 			"$propertyName$", $default$);
 			
 			
