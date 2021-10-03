@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>ReactiveUI validation for any validateable Property</Title>
+			<Shortcut>rxval</Shortcut>
+			<Description>Code snippet for creating a validaiton rule for any supported ViewModel. See: https://www.reactiveui.net/docs/handbook/user-input-validation/</Description>
+			<Author>timunie</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>propertyName</ID>
+					<ToolTip>The name of the property to validate</ToolTip>
+					<Default>Property</Default>
+				</Literal>
+				<Literal>
+					<ID>owner</ID>
+					<ToolTip>The property owner to validate. Use this for the current class</ToolTip>
+					<Default>this</Default>
+				</Literal>
+				<Literal>
+					<ID>validationRule</ID>
+					<ToolTip>The property owner to validate. Use this for the current class</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>errorMessage</ID>
+					<ToolTip>The error message to show</ToolTip>
+					<Default>"The value is not valid"</Default>
+				</Literal>
+			</Declarations>
+			<Imports>
+				<Import>
+				  <Namespace>ReactiveUI</Namespace>
+				</Import>
+				<Import>
+				  <Namespace>ReactiveUI.Validation.Helpers</Namespace>
+				</Import>
+				<Import>
+				  <Namespace>ReactiveUI.Validation.Extensions</Namespace>
+				</Import>
+			</Imports>
+			<Code Language="csharp"><![CDATA[
+            $owner$.ValidationRule(
+                validator => validator.$propertyName$,
+                _$propertyName$ => $validationRule$,
+                $errorMessage$);]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
