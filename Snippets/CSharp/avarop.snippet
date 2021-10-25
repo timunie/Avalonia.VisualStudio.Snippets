@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Avalonia Direct Property</Title>
+			<Shortcut>avarop</Shortcut>
+			<Description>Code snippet for creating a new Direct Readonly Property</Description>
+			<Author>timunie</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>propertyName</ID>
+					<ToolTip>The name of the property</ToolTip>
+					<Default>DirectProperty</Default>
+				</Literal>
+				<Literal>
+					<ID>propertyType</ID>
+					<ToolTip>The type of the property</ToolTip>
+					<Default>object</Default>
+				</Literal>
+				<Literal>
+					<ID>ownerType</ID>
+					<ToolTip>The type of the owner</ToolTip>
+					<Default>Control</Default>
+				</Literal>
+				<Literal>
+					<ID>comment</ID>
+					<ToolTip>A comment which discipes the property</ToolTip>
+					<Default>Comment</Default>
+				</Literal>
+			</Declarations>
+			<Imports>
+				<Import>
+				  <Namespace>Avalonia</Namespace>
+				</Import>
+			</Imports>
+			<Code Language="csharp"><![CDATA[
+		/// <summary>
+        /// Defines the <see cref="$propertyName$"/> property.
+        /// </summary>
+        public static readonly DirectProperty<$ownerType$, $propertyType$> $propertyName$Property =
+            AvaloniaProperty.RegisterDirect<$ownerType$, $propertyType$>(nameof($propertyName$), o => o.$propertyName$);
+			
+		/// <summary>
+        /// $comment$
+        /// </summary>
+        public $propertyType$ $propertyName$
+        {
+            get { return GetValue($propertyName$Property); }
+            private set { SetValue($propertyName$Property, value); }
+        }]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
